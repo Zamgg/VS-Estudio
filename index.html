@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algorithms Page</title>
+    <title>AlgoritmoCole</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -78,7 +78,7 @@
         .botones:active{
             transform: scale(0.95);
         }
-
+    
     </style>
 </head>
 <body>
@@ -86,10 +86,10 @@
 <main>
     <!-- Algoritmo 1: Even or Odd Checker -->
     <div id="evenOddAlgorithm">
-        <h2>Verificar si el numero es par o impar</h2>
+        <h2>Verificar si el número es par o impar</h2>
 
         <form id="numberForm1">
-            <label for="numberInput1">Introduce el numero: </label>
+            <label for="numberInput1">Introduce el número: </label>
             <input class="numeroInput"  type="number" id="numberInput1" name="numberInput1" required>
             <button class="botones" type="button" onclick="checkNumber1()">Mostrar</button>
         </form>
@@ -97,29 +97,23 @@
         <p id="evenOddResult1"></p>
     </div>
 
-    <!-- Algoritmo 2: Sum of Two Numbers -->
+    <!-- Algoritmo 2: Sum of Numbers 1 to 10 -->
     <div id="sumAlgorithm">
-        <h2>Suma de Dos numeros</h2>
+        <h2>Suma de números del 1 al 10</h2>
 
         <form id="numberForm2">
-            <label for="num1">Introduzca Primer número: </label>
-            <input type="number" id="num1" name="num1" required>
-            <br>
-            <label for="num2">Introduzca el segundo número: </label>
-            <input type="number" id="num2" name="num2" required>
-            <br>
-            <button class="botones" type="button" onclick="calculateSum()">Calcular números</button>
+            <button class="botones" type="button" onclick="calculateSum1To10()">Calcular Suma</button>
         </form>
 
-        <p id="sumResult"></p>
+        <p id="sumResult1To10"></p>
     </div>
 
     <!-- Algoritmo 3: Verify if positive or negative -->
     <div id="signAlgorithm">
-        <h2>verificar si el numero es positivo,negativo o neutro</h2>
+        <h2>Verificar si el número es positivo, negativo o neutro</h2>
 
         <form id="numberForm3">
-            <label for="num3">Enter a number:</label>
+            <label for="num3">Ingresa un número:</label>
             <input type="number" id="num3" name="num3" required oninput="checkSign3()">
         </form>
 
@@ -132,29 +126,27 @@
         var number = document.getElementById("numberInput1").value;
 
         if (number % 2 === 0) {
-            document.getElementById("evenOddResult1").textContent = "el numero es par.";
+            document.getElementById("evenOddResult1").textContent = "El número es par.";
         } else {
-            document.getElementById("evenOddResult1").textContent = "el numero es impar.";
+            document.getElementById("evenOddResult1").textContent = "El número es impar.";
         }
     }
 
-    function calculateSum() {
-        var num1 = parseFloat(document.getElementById("num1").value);
-        var num2 = parseFloat(document.getElementById("num2").value);
-
-        if (!isNaN(num1) && !isNaN(num2)) {
-            var sum = num1 + num2;
-            document.getElementById("sumResult").textContent = "La suma de los dos numeros es: " + sum;
-        } else {
-            document.getElementById("sumResult").textContent = "por favor ingrese un numero valido.";
+    function calculateSum1To10() {
+        var sum = 0;
+        
+        for (var i = 1; i <= 10; i++) {
+            sum += i;
         }
+        
+        document.getElementById("sumResult1To10").textContent = "La suma de los números del 1 al 10 es: " + sum;
     }
 
     function checkSign3() {
         var num = parseFloat(document.getElementById("num3").value);
 
         if (!isNaN(num)) {
-            var resultText = "el numero es ";
+            var resultText = "El número es ";
 
             if (num > 0) {
                 resultText += "positivo.";
@@ -166,7 +158,7 @@
 
             document.getElementById("signResult3").textContent = resultText;
         } else {
-            document.getElementById("signResult3").textContent = "por favor ingrese un numero valido.";
+            document.getElementById("signResult3").textContent = "Por favor, ingresa un número válido.";
         }
     }
 </script>
